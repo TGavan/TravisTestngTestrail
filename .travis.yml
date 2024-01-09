@@ -9,7 +9,7 @@ jobs:
       script:
         - mvn clean compile test
       after_script :
-        - brew install openssl@1.1
+        - pip install urllib3==1.26.6
         - pip install trcli
         - trcli -y 
            -h https://testrailsademo.testrail.io/ 
