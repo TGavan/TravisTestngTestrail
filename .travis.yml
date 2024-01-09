@@ -10,6 +10,8 @@ jobs:
         - mvn clean compile test
         - pwd
         - ls
+        - cd target
+        - ls
       after_script :
         - pip install urllib3==1.26.6
         - pip install trcli
@@ -21,4 +23,4 @@ jobs:
            parse_junit 
            --title "Automated Tests from travis workflow" 
            --run-description $TRAVIS_JOB_WEB_URL 
-           -f "./reports/TEST-TestSuite.xml"
+           -f "./target/surefire-reports/TEST-TestSuite.xml"
