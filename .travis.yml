@@ -8,6 +8,8 @@ jobs:
       stage: Run tests and upload results to TestRail
       script:
         - mvn clean compile test
+        - pwd
+        - ls
       after_script :
         - pip install urllib3==1.26.6
         - pip install trcli
