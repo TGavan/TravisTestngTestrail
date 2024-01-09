@@ -9,7 +9,7 @@ jobs:
       script:
         - mvn clean compile test
       after_script :
-        - pipenv install --python 3.11
+        - brew install openssl@1.1
         - pip install trcli
         - trcli -y 
            -h https://testrailsademo.testrail.io/ 
@@ -19,4 +19,4 @@ jobs:
            parse_junit 
            --title "Automated Tests from travis workflow" 
            --run-description $TRAVIS_JOB_WEB_URL 
-           -f "./target/surefire-reports/TEST-TestSuite.xml"
+           -f "./reports/TEST-TestSuite.xml"
