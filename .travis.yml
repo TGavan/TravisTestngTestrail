@@ -2,7 +2,7 @@ dist: xenial
 jobs:
   include:
     - language: python
-      python: 3.10-dev
+      python: 3.11-dev
       addons:
        chrome: stable
       stage: Run tests and upload results to TestRail
