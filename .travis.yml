@@ -8,17 +8,20 @@ jobs:
       stage: Run tests and upload results to TestRail
       script:
         - mvn clean compile test
+      
+      after_script :
         - pwd
         - ls
         - cd target
         - ls
-      after_script :
+        - cd surefire-reports
+        - ls 
         - pip install urllib3==1.26.6
         - pip install trcli
         - trcli -y 
            -h https://testrailsademo.testrail.io/ 
            --project "Travis CI Integration" 
-           -u TestUser1@gurock.io 
+           -u TestUser1@gurock.io
            -p Test1234@
            parse_junit 
            --title "Automated Tests from travis workflow" 
