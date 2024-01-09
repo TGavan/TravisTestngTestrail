@@ -2,13 +2,14 @@ dist: xenial
 jobs:
   include:
     - language: python
-      python: 3.10
+      python: 3.10-dev
       addons:
        chrome: stable
       stage: Run tests and upload results to TestRail
       script:
         - mvn clean compile test
       after_script :
+        - pipenv install --python 3.11
         - pip install trcli
         - trcli -y 
            -h https://testrailsademo.testrail.io/ 
